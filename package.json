@@ -1,0 +1,54 @@
+{
+  "name": "tintin-formatter",
+  "displayName": "TinTin++ Formatter",
+  "description": "VS Code extension a TinTin++ (.tin) fájlok formázásához",
+  "version": "0.0.1",
+  "publisher": "Gaohei",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:tin",
+    "onCommand:extension.formatTin"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "tin",
+        "extensions": [".tin"],
+        "aliases": ["TinTin++"]
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.formatTin",
+        "title": "Format TinTin++ File"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.formatTin",
+        "key": "ctrl+alt+l",
+        "when": "editorTextFocus && editorLangId == 'tin'"
+      }
+    ],
+    "configurationDefaults": {
+      "[tin]": {
+        "editor.defaultFormatter": "Gaohei.tintin-formatter"
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "typescript": "^4.4.3",
+    "vscode": "^1.1.37"
+  }
+}
