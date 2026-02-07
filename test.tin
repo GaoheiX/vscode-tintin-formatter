@@ -13,6 +13,6 @@
 #var test {{inner} outer}
 
 #nop Check functions
-#VAR temp @replace{{$reboot_time} {:} { }};
-#VAR nrls @word{{$temp} {1}};
+#variable temp @replace{{$reboot_time} {:} { }};
+#var nrls @word{{$temp} {1}};
 add reboot_seconds @eval{$nrls * 60 * 60};

@@ -149,22 +149,22 @@ function compactBracesContent(text) {
 function formatCommands(input) {
     let output = "";
     let lastIndex = 0;
-    const commandRegex = /(#(?:action|macro|function|alias|config|event))\s*(?:\{([^}]*)\}|([^\s\{]+))\s*/gi;
+    const commandRegex = /(#(?:action|macro|function|alias|config|event|if|while|ticker|substitute))\s*(?:\{([^}]*)\}|([^\s\{]+))\s*/gi;
     let match;
     while ((match = commandRegex.exec(input)) !== null) {
-        output += input.substring(lastIndex, match.index);
+        output += uppercaseHashFirstWord(input.substring(lastIndex, match.index));
         let keyword = match[1].toUpperCase();
         let firstBlockContent = (typeof match[2] !== "undefined") ? match[2] : match[3];
         let formattedFirst = "{" + firstBlockContent + "}";
         let secondBlockStart = input.indexOf('{', commandRegex.lastIndex);
         if (secondBlockStart === -1) {
-            output += match[0];
+            output += uppercaseHashFirstWord(input.substring(match.index));
             lastIndex = input.length;
             break;
         }
         let ext = extractBlock(input, secondBlockStart);
         if (!ext) {
-            output += input.substring(match.index);
+            output += uppercaseHashFirstWord(input.substring(match.index));
             lastIndex = input.length;
             break;
         }
@@ -178,7 +178,7 @@ function formatCommands(input) {
         let formattedCommand = keyword + " " + formattedFirst + " " + finalSecond;
         output += formattedCommand;
     }
-    output += input.substring(lastIndex);
+    output += uppercaseHashFirstWord(input.substring(lastIndex));
     return output;
 }
 function fixBraces(text) {
