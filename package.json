@@ -2,7 +2,7 @@
   "name": "tintin-formatter",
   "displayName": "TinTin++ Formatter",
   "description": "VS Code extension for TinTin++ (.tin) files",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "Gaohei",
   "engines": {
     "vscode": "^1.60.0"
@@ -19,8 +19,20 @@
     "languages": [
       {
         "id": "tin",
-        "extensions": [".tin"],
-        "aliases": ["TinTin++"]
+        "extensions": [
+          ".tin"
+        ],
+        "aliases": [
+          "TinTin++"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tin",
+        "scopeName": "source.tintin",
+        "path": "./syntaxes/tintin.tmLanguage.json"
       }
     ],
     "commands": [

@@ -1,0 +1,18 @@
+#nop This is a comment
+#var name {Gandalf}
+#action {You are hungry} {eat bread}
+#alias {k} {kill %1}
+
+#if {"$name" == "Gandalf"} {
+    #showme {You are a wizard!}
+}
+
+#math result 10 + 20;
+
+#nop Check brackets
+#var test {{inner} outer}
+
+#nop Check functions
+#VAR temp @replace{{$reboot_time} {:} { }};
+#VAR nrls @word{{$temp} {1}};
+add reboot_seconds @eval{$nrls * 60 * 60};

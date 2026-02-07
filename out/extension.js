@@ -107,7 +107,12 @@ function formatBlock(content, indent) {
     return lines;
 }
 function uppercaseHashFirstWord(text) {
-    return text.replace(/#(\S+)/g, (match, word) => '#' + word.toUpperCase());
+    return text.replace(/#(\S+)/g, (match, word) => {
+        if (/^gts(\W|$)/i.test(word)) {
+            return '#gts' + word.substring(3);
+        }
+        return '#' + word.toUpperCase();
+    });
 }
 function pullBackOpeningBrace(text) {
     return text.replace(/(\S)\s+(\{)/g, '$1 $2');

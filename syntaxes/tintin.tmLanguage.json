@@ -1,0 +1,136 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "TinTin++",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#commands"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#parameters"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#operators"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "begin": "(?i)^\\s*#nop",
+                    "end": "$",
+                    "name": "comment.line.tintin"
+                },
+                {
+                    "match": "(?i)^\\s*#comment.*$",
+                    "name": "comment.line.tintin"
+                }
+            ]
+        },
+        "commands": {
+            "patterns": [
+                {
+                    "match": "(?i)#\\b[a-z]+\\b",
+                    "name": "keyword.control.tintin"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "match": "(?i)@[a-z0-9_]+",
+                    "name": "support.function.tintin"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "match": "\\$[a-zA-Z0-9_]+",
+                    "name": "variable.other.tintin"
+                },
+                {
+                    "match": "\\$\\{[a-zA-Z0-9_]+\\}",
+                    "name": "variable.other.tintin"
+                }
+            ]
+        },
+        "parameters": {
+            "patterns": [
+                {
+                    "match": "%[0-9]+",
+                    "name": "variable.parameter.tintin"
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "begin": "\"",
+                    "end": "\"",
+                    "name": "string.quoted.double.tintin",
+                    "patterns": [
+                        {
+                            "match": "\\\\.",
+                            "name": "constant.character.escape.tintin"
+                        }
+                    ]
+                },
+                {
+                    "begin": "\\{",
+                    "end": "\\}",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.begin.tintin"
+                        }
+                    },
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.end.tintin"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "$self"
+                        }
+                    ]
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "match": "\\b\\d+(\\.\\d+)?\\b",
+                    "name": "constant.numeric.tintin"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "match": ";",
+                    "name": "punctuation.terminator.statement.tintin"
+                },
+                {
+                    "match": "=",
+                    "name": "keyword.operator.assignment.tintin"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.tintin"
+}
