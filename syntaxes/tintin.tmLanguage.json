@@ -31,13 +31,28 @@
         "comments": {
             "patterns": [
                 {
-                    "begin": "(?i)^\\s*#nop",
-                    "end": "$",
-                    "name": "comment.line.tintin"
+                    "begin": "(?i)^\\s*(?:#nop|#0)\\b",
+                    "end": "(?=;|\\s*$)",
+                    "name": "comment.line.tintin",
+                    "patterns": [
+                        {
+                            "include": "#comment-block"
+                        }
+                    ]
                 },
                 {
                     "match": "(?i)^\\s*#comment.*$",
                     "name": "comment.line.tintin"
+                }
+            ]
+        },
+        "comment-block": {
+            "begin": "\\{",
+            "end": "\\}",
+            "name": "comment.block.tintin",
+            "patterns": [
+                {
+                    "include": "#comment-block"
                 }
             ]
         },

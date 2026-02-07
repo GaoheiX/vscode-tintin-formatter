@@ -4,12 +4,13 @@ These are basically tintin++ codes.
 
 Install the extension in normal VS Code:
 
+- Download the .vsix file.
 - Open VS Code.
 - Go to the Extensions view [ctrl+shift+x], then select "Install from VSIX...".
 - Open the .vsix file and install it.
 
 Or just simply run this:
-code --install-extension tintin-formatter-1.0.1.vsix
+code --install-extension tintin-formatter-1.1.0.vsix
 
 Support:
 If you like this project and would like to contribute,
