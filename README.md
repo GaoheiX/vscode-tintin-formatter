@@ -2,6 +2,12 @@
 This visual studio code add-on will help you format your files with the .tin extension.
 These are basically tintin++ codes.
 
+Install the extension in normal VS Code:
+
+- Open VS Code.
+- Go to the Extensions view [ctrl+shift+x], then select "Install from VSIX...".
+- Open the .vsix file and install it.
+
 Support:
 If you like this project and would like to contribute,
 please support me by using the following PayPal link: https://paypal.me/gaohei

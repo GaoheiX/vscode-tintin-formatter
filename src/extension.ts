@@ -101,7 +101,12 @@ function formatBlock(content: string, indent: number): string {
 }
 
 function uppercaseHashFirstWord(text: string): string {
-  return text.replace(/#(\S+)/g, (match, word) => '#' + word.toUpperCase());
+  return text.replace(/#(\S+)/g, (match, word) => {
+    if (/^gts(\W|$)/i.test(word)) {
+      return '#gts' + word.substring(3);
+    }
+    return '#' + word.toUpperCase();
+  });
 }
 
 function pullBackOpeningBrace(text: string): string {
@@ -166,7 +171,7 @@ function formatCommands(input: string): string {
     lastIndex = secondBlockEnd + 1;
     let formattedSecond = formatBlock(secondBlockContent, 0);
     let finalSecond = uppercaseHashFirstWord(pullBackOpeningBrace(compactBracesContent(formattedSecond)))
-                        .replace(/__RAW_BLOCK_START__|__RAW_BLOCK_END__/g, "");
+      .replace(/__RAW_BLOCK_START__|__RAW_BLOCK_END__/g, "");
     let formattedCommand = keyword + " " + formattedFirst + " " + finalSecond;
     output += formattedCommand;
   }
@@ -213,4 +218,4 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(command);
 }
 
-export function deactivate() {}
+export function deactivate() { }
