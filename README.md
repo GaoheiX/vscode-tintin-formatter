@@ -1,19 +1,31 @@
-# vscode-tintin-formatter
-This visual studio code add-on will help you format your files with the .tin extension.
-These are basically tintin++ codes.
+# TinTin++ Formatter & Highlighter
 
-Install the extension in normal VS Code:
+This Visual Studio Code extension provides professional support for **TinTin++ (.tin)** files. It ensures your MUD scripts are readable, well-formatted, and easy to write.
 
-- Download the .vsix file.
-- Open VS Code.
-- Go to the Extensions view [ctrl+shift+x], then select "Install from VSIX...".
-- Open the .vsix file and install it.
+## Features
 
-Or just simply run this:
-code --install-extension tintin-formatter-1.1.0.vsix
+* **Syntax Highlighting**: Full color support for commands, variables (`$val`), parameters (`%1`), and comments.
+* **Automatic Formatting**: Clean up your code indentation and braces instantly.
+* **Intelligent Brackets**: Matching for curly braces and parentheses.
+* **Shortcut**: Press `Ctrl+Alt+L` or `Shift+Alt+F` to format your document on the fly.
 
-Support:
-If you like this project and would like to contribute,
-please support me by using the following PayPal link: https://paypal.me/gaohei
+## Installation
 
-2025 gaohei@gmail.com
+### From Marketplace (Recommended)
+Simply search for **"TinTin++ Formatter"** in the VS Code Extensions view and click Install.
+
+### Manual Installation (.vsix)
+If you downloaded the extension from [GitHub](https://github.com/GaoheiX/vscode-tintin-formatter):
+
+1.  Open **VS Code**.
+2.  Go to the **Extensions view** (`Ctrl+Shift+X`).
+3.  Click the `...` (More Actions) at the top right and select **Install from VSIX...**.
+4.  Select the `.vsix` file.
+
+**Or via command line:**
+code --install-extension tintin-formatter-1.1.1.vsix
+
+## Support & Contribution
+If you find this project useful and would like to support its development, you can contribute via PayPal: https://paypal.me/gaohei
+
+© 2026 gaohei@gmail.com

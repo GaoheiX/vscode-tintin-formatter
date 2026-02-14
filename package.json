@@ -1,14 +1,24 @@
 {
   "name": "tintin-formatter",
-  "displayName": "TinTin++ Formatter",
-  "description": "VS Code extension for TinTin++ (.tin) files",
-  "version": "1.1.0",
+  "displayName": "TinTin++ code formatter and highlighter",
+  "description": "VS Code extension for TinTin++ (.tin) files with formatting and syntax highlighting support.",
+  "version": "1.1.1",
   "publisher": "Gaohei",
+  "icon": "icon.png",
+  "keywords": [
+    "tintin",
+    "tintin++",
+    "formatter",
+    "highlighter",
+    "mud",
+    "script"
+  ],
   "engines": {
     "vscode": "^1.60.0"
   },
   "categories": [
-    "Formatters"
+    "Formatters",
+    "Programming Languages"
   ],
   "activationEvents": [
     "onLanguage:tin",
